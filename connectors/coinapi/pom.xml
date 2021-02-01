@@ -14,9 +14,21 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.coinapi.rest</groupId>
-      <artifactId>v1</artifactId>
-      <version>1.2</version>
+      <groupId>io.github.openfeign</groupId>
+      <artifactId>feign-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.github.openfeign</groupId>
+      <artifactId>feign-gson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>compile</scope>
     </dependency>
 
     <dependency>
