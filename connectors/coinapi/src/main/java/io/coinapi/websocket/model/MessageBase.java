@@ -1,7 +1,9 @@
 package io.coinapi.websocket.model;
 
 import com.dslplatform.json.CompiledJson;
+import lombok.ToString;
 
+@ToString
 @CompiledJson
 public class MessageBase {
 

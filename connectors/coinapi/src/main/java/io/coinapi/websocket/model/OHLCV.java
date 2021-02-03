@@ -4,7 +4,9 @@ import com.dslplatform.json.CompiledJson;
 import com.dslplatform.json.JsonAttribute;
 
 import java.time.OffsetDateTime;
+import lombok.ToString;
 
+@ToString(callSuper = true)
 @CompiledJson
 public class OHLCV extends MessageBase {
 

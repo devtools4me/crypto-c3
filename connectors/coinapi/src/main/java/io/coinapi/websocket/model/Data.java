@@ -1,5 +1,8 @@
 package io.coinapi.websocket.model;
 
+import lombok.ToString;
+
+@ToString
 public class Data {
 
     private Double price;

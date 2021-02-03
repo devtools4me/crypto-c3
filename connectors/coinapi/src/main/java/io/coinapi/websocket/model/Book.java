@@ -5,7 +5,9 @@ import com.dslplatform.json.JsonAttribute;
 
 import java.time.OffsetDateTime;
 import java.util.List;
+import lombok.ToString;
 
+@ToString(callSuper = true)
 @CompiledJson
 public class Book extends MessageBase {
 

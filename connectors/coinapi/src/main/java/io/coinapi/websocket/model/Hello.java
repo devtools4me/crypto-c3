@@ -2,7 +2,9 @@ package io.coinapi.websocket.model;
 
 import com.dslplatform.json.CompiledJson;
 import com.dslplatform.json.JsonAttribute;
+import lombok.ToString;
 
+@ToString
 @CompiledJson
 public class Hello {
 

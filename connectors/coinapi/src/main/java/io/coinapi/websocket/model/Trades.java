@@ -6,7 +6,7 @@ import com.dslplatform.json.JsonAttribute;
 import java.time.OffsetDateTime;
 import lombok.ToString;
 
-@ToString
+@ToString(callSuper = true)
 @CompiledJson
 public class Trades extends MessageBase {
 
