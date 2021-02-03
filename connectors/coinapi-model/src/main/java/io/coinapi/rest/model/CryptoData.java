@@ -1,5 +1,7 @@
 package io.coinapi.rest.model;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -9,13 +11,13 @@ import lombok.ToString;
 @ToString
 public class CryptoData {
 
-  private String data_start;
-  private String data_end;
-  private String data_quote_start;
-  private String data_quote_end;
-  private String data_orderbook_start;
-  private String data_orderbook_end;
-  private String data_trade_start;
-  private String data_trade_end;
+  private LocalDate data_start;
+  private LocalDate data_end;
+  private OffsetDateTime data_quote_start;
+  private OffsetDateTime data_quote_end;
+  private OffsetDateTime data_orderbook_start;
+  private OffsetDateTime data_orderbook_end;
+  private OffsetDateTime data_trade_start;
+  private OffsetDateTime data_trade_end;
   private Long data_symbols_count;
 }

@@ -6,8 +6,8 @@ import feign.Logger.Level;
 import feign.Request.Options;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
-import feign.gson.GsonDecoder;
-import feign.gson.GsonEncoder;
+import feign.dsljson.DslJsonDecoder;
+import feign.dsljson.DslJsonEncoder;
 import io.coinapi.rest.CryptoErrorDecoder;
 import io.coinapi.rest.MetadataApi;
 import java.util.concurrent.TimeUnit;
@@ -16,8 +16,8 @@ public class MetadataApiRun {
 
   public static void main(String args[]) {
 
-    final Decoder decoder = new GsonDecoder();
-    final Encoder encoder = new GsonEncoder();
+    final Decoder decoder = new DslJsonDecoder();
+    final Encoder encoder = new DslJsonEncoder();
     MetadataApi api = Feign.builder()
         .encoder(encoder)
         .decoder(decoder)
