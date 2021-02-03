@@ -1,4 +1,4 @@
-package com.crypto.c3.coinapi;
+package me.devtools4.crypto;
 
 import feign.Feign;
 import feign.Logger.ErrorLogger;
@@ -8,7 +8,7 @@ import feign.codec.Decoder;
 import feign.codec.Encoder;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
-import io.coinapi.rest.model.CryptoErrorDecoder;
+import io.coinapi.rest.CryptoErrorDecoder;
 import io.coinapi.rest.MetadataApi;
 import java.util.concurrent.TimeUnit;
 

@@ -14,6 +14,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>me.devtools4.crypto</groupId>
+      <artifactId>crypto-c3-coinapi-model</artifactId>
+      <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-core</artifactId>
     </dependency>

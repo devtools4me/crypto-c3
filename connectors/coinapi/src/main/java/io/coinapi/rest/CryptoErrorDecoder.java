@@ -1,8 +1,9 @@
-package io.coinapi.rest.model;
+package io.coinapi.rest;
 
 import feign.Response;
 import feign.codec.Decoder;
 import feign.codec.ErrorDecoder;
+import io.coinapi.rest.model.CryptoError;
 
 public class CryptoErrorDecoder implements ErrorDecoder {
 

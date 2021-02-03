@@ -16,5 +16,6 @@
 
   <modules>
     <module>coinapi</module>
+    <module>coinapi-model</module>
   </modules>
 </project>

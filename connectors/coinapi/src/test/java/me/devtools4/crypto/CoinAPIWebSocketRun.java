@@ -1,4 +1,4 @@
-package com.crypto.c3.coinapi;
+package me.devtools4.crypto;
 
 import static io.coinapi.websocket.model.MessageTypeEnum.*;
 
