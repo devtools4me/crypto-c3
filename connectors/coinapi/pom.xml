@@ -23,10 +23,6 @@
       <artifactId>feign-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.github.openfeign</groupId>
-      <artifactId>feign-gson</artifactId>
-    </dependency>
-    <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
     </dependency>
