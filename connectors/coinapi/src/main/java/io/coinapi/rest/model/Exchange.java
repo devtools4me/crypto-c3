@@ -1,4 +1,4 @@
-package com.crypto.c3.coinapi;
+package io.coinapi.rest.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -7,10 +7,9 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class Asset extends DataVolume {
+public class Exchange extends DataVolume {
 
-  private String asset_id;
+  private String exchange_id;
+  private String website;
   private String name;
-  private Integer type_is_crypto;
-  private Double price_usd;
 }

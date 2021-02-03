@@ -1,4 +1,4 @@
-package com.crypto.c3.coinapi;
+package io.coinapi.rest.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

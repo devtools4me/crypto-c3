@@ -8,6 +8,8 @@ import feign.codec.Decoder;
 import feign.codec.Encoder;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
+import io.coinapi.rest.model.CryptoErrorDecoder;
+import io.coinapi.rest.MetadataApi;
 import java.util.concurrent.TimeUnit;
 
 public class MetadataApiRun {

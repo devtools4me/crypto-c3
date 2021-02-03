@@ -1,12 +1,12 @@
 package com.crypto.c3.coinapi;
 
+import static io.coinapi.websocket.model.MessageTypeEnum.*;
+
 import io.coinapi.websocket.CoinAPIWebSocket;
 import io.coinapi.websocket.CoinAPIWebSocketImpl;
+import io.coinapi.websocket.interfaces.InvokeFunction;
 import io.coinapi.websocket.model.Hello;
-import io.coinapi.websocket.model.Quotes;
-import io.coinapi.websocket.model.Trades;
 import java.util.concurrent.atomic.AtomicReference;
-import org.junit.Assert;
 
 public class CoinAPIWebSocketRun {
 
@@ -17,27 +17,38 @@ public class CoinAPIWebSocketRun {
 
     AtomicReference<Integer> msgCount = new AtomicReference<>(0);
 
-    coinAPIWebSocket.setTradesInvoke(message -> {
+    InvokeFunction cb = message -> {
       System.out.println(message);
-      Trades trades = (Trades) message;
       msgCount.getAndSet(msgCount.get() + 1);
-    });
+    };
 
-    coinAPIWebSocket.setQuotesInvoke(message -> {
-      System.out.println(message);
-      Quotes quotes = (Quotes) message;
-      msgCount.getAndSet(msgCount.get() + 1);
-    });
+    coinAPIWebSocket.setTradesInvoke(cb);
+    coinAPIWebSocket.setQuotesInvoke(cb);
+    coinAPIWebSocket.setBookInvoke(cb);
+    coinAPIWebSocket.setOHLCVInvoke(cb);
+    coinAPIWebSocket.setVolumeInvoke(cb);
+    coinAPIWebSocket.setErrorInvoke(cb);
+    coinAPIWebSocket.setReconnectInvoke(cb);
 
-    coinAPIWebSocket.sendHelloMessage(createHello(new String[]{
-        "trade", "quote"
-    }));
+    String[] types = new String[] {
+        trade.name(),
+//        quote.name(),
+//        book.name(),
+//        book5.name(),
+//        book20.name(),
+//        book50.name(),
+        ohlcv.name(),
+        volume.name(),
+//        hearbeat.name(),
+//        error.name(),
+//        reconnect.name()
+    };
+    coinAPIWebSocket.sendHelloMessage(createHello(types));
 
     Thread.sleep(10000);
-    System.out.println("processing " + msgCount.get() + " trade messages");
+    System.out.println("processing " + msgCount.get() + " messages");
 
     coinAPIWebSocket.closeConnect();
-    Assert.assertNotEquals(0, msgCount.get().intValue());
   }
 
 

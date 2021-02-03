@@ -1,7 +1,12 @@
-package com.crypto.c3.coinapi;
+package io.coinapi.rest;
 
 import feign.Param;
 import feign.RequestLine;
+import io.coinapi.rest.model.Asset;
+import io.coinapi.rest.model.AssetIcon;
+import io.coinapi.rest.model.Exchange;
+import io.coinapi.rest.model.ExchangeIcon;
+import io.coinapi.rest.model.Symbol;
 import java.util.List;
 
 public interface MetadataApi {
