@@ -25,7 +25,7 @@ public class MetadataApiRun {
         .requestInterceptor(template -> {
           template.header(
               "X-CoinAPI-Key",
-              "76E7E6A1-AED9-4AC0-BFC1-E1C53B45666D1");
+              "76E7E6A1-AED9-4AC0-BFC1-E1C53B45666D");
         })
         .options(new Options(10, TimeUnit.SECONDS, 60, TimeUnit.SECONDS, true))
         .target(MetadataApi.class, "https://rest.coinapi.io");
