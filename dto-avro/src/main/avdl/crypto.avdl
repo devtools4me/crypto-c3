@@ -1,4 +1,4 @@
-@namespace("me.devtools4.crypto.api.event")
+@namespace("me.devtools4.crypto.dto.avro")
 protocol CryptoEvents {
   enum Type {
     TRADE,
@@ -15,15 +15,14 @@ protocol CryptoEvents {
   }
 
   record TradeEvent {
+    union {null, string} symbolId = null;
+    union {null, int} sequence = null;
     union {null, timestamp_ms} timeExchange = null;
     union {null, timestamp_ms} timeCoinapi = null;
     union {null, string} uuid = null;
     union {null, double} price = null;
     union {null, double} size = null;
     union {null, string} takerSide = null;
-    union {null, string} symbolId = null;
-    union {null, long} sequence = null;
-    union {null, Type} type = null;
   }
 
   record OhlcvEvent {
@@ -40,6 +39,5 @@ protocol CryptoEvents {
     union {null, long} tradesCount = null;
     union {null, string} symbolId = null;
     union {null, long} sequence = null;
-    union {null, Type} type = null;
   }
 }

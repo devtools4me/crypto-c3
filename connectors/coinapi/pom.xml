@@ -19,8 +19,18 @@
       <version>${project.parent.version}</version>
     </dependency>
     <dependency>
+      <groupId>me.devtools4.crypto</groupId>
+      <artifactId>crypto-c3-dto-avro</artifactId>
+      <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>2.4.0</version>
     </dependency>
     <dependency>
       <groupId>commons-io</groupId>
