@@ -1,5 +1,18 @@
 @namespace("me.devtools4.crypto.api.event")
 protocol CryptoEvents {
+  enum Type {
+    TRADE,
+    QUOTE,
+    BOOK,
+    BOOK5,
+    BOOK20,
+    BOOK50,
+    OHLCV,
+    VOLUME,
+    HEARBEAT,
+    ERROR,
+    RECONNECT
+  }
 
   record TradeEvent {
     union {null, timestamp_ms} timeExchange = null;
@@ -10,7 +23,7 @@ protocol CryptoEvents {
     union {null, string} takerSide = null;
     union {null, string} symbolId = null;
     union {null, long} sequence = null;
-    union {null, string} type = null;
+    union {null, Type} type = null;
   }
 
   record OhlcvEvent {
@@ -27,6 +40,6 @@ protocol CryptoEvents {
     union {null, long} tradesCount = null;
     union {null, string} symbolId = null;
     union {null, long} sequence = null;
-    union {null, string} type = null;
+    union {null, Type} type = null;
   }
 }
