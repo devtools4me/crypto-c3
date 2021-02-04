@@ -27,6 +27,7 @@
 
   <modules>
     <module>connectors</module>
+    <module>dto-avro</module>
   </modules>
 
   <properties>
@@ -39,6 +40,7 @@
     <slf4j.version>1.7.29</slf4j.version>
     <feign.version>11.0</feign.version>
     <lombok.version>1.18.0</lombok.version>
+    <avro.version>1.9.2</avro.version>
   </properties>
 
   <build>

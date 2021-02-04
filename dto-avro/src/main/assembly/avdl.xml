@@ -1,0 +1,15 @@
+<assembly>
+  <id>avdl</id>
+  <formats>
+    <format>tar.gz</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <outputDirectory>crypto-dto-avdl</outputDirectory>
+      <directory>${project.basedir}/src/main/avdl</directory>
+      <lineEnding>unix</lineEnding>
+      <fileMode>0777</fileMode>
+    </fileSet>
+  </fileSets>
+</assembly>

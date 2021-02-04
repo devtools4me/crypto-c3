@@ -1,0 +1,32 @@
+@namespace("me.devtools4.crypto.api.event")
+protocol CryptoEvents {
+
+  record TradeEvent {
+    union {null, timestamp_ms} timeExchange = null;
+    union {null, timestamp_ms} timeCoinapi = null;
+    union {null, string} uuid = null;
+    union {null, double} price = null;
+    union {null, double} size = null;
+    union {null, string} takerSide = null;
+    union {null, string} symbolId = null;
+    union {null, long} sequence = null;
+    union {null, string} type = null;
+  }
+
+  record OhlcvEvent {
+    union {null, string} periodId = null;
+    union {null, timestamp_ms} timePeriodStart = null;
+    union {null, timestamp_ms} timePeriodEnd = null;
+    union {null, timestamp_ms} timeOpen = null;
+    union {null, timestamp_ms} timeClose = null;
+    union {null, double} priceOpen = null;
+    union {null, double} priceHigh = null;
+    union {null, double} priceLow = null;
+    union {null, double} priceClose = null;
+    union {null, double} volumeTraded = null;
+    union {null, long} tradesCount = null;
+    union {null, string} symbolId = null;
+    union {null, long} sequence = null;
+    union {null, string} type = null;
+  }
+}

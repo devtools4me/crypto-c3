@@ -1,0 +1,15 @@
+<assembly>
+  <id>avsc</id>
+  <formats>
+    <format>tar.gz</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <outputDirectory>crypto-dto-avsc</outputDirectory>
+      <directory>${project.basedir}/target/avsc</directory>
+      <lineEnding>unix</lineEnding>
+      <fileMode>0777</fileMode>
+    </fileSet>
+  </fileSets>
+</assembly>

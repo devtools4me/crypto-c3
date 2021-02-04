@@ -5,6 +5,7 @@ import io.coinapi.websocket.exception.NotImplementedException;
 import io.coinapi.websocket.interfaces.InvokeFunction;
 import io.coinapi.websocket.model.*;
 import io.coinapi.websocket.model.Error;
+import lombok.extern.slf4j.Slf4j;
 import org.glassfish.tyrus.client.ClientManager;
 
 import jakarta.websocket.*;
@@ -19,6 +20,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 public class CoinAPIWebSocketImpl implements CoinAPIWebSocket {
 
     private final String sandboxUrl = "wss://ws-sandbox.coinapi.io/v1/";
@@ -56,6 +58,8 @@ public class CoinAPIWebSocketImpl implements CoinAPIWebSocket {
             while (running) {
                 if (messagesQueue.size() > 0) {
                     String message = (String) messagesQueue.remove();
+                    //log.info("message={}", message);
+
                     InputStream stream = new ByteArrayInputStream(message.getBytes());
                     try {
                         MessageBase type = json.deserialize(MessageBase.class, stream);

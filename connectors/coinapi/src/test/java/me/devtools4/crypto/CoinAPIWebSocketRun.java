@@ -37,8 +37,8 @@ public class CoinAPIWebSocketRun {
 //        book5.name(),
 //        book20.name(),
 //        book50.name(),
-        ohlcv.name(),
-        volume.name(),
+//        ohlcv.name(),
+//        volume.name(),
 //        hearbeat.name(),
 //        error.name(),
 //        reconnect.name()
