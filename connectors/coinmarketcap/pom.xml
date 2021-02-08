@@ -1,23 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>me.devtools4.crypto</groupId>
-    <artifactId>crypto-c3-parent</artifactId>
+    <artifactId>crypto-c3-connectors-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>crypto-c3-connectors-parent</artifactId>
+  <artifactId>crypto-c3-coinmarketcap-parent</artifactId>
   <packaging>pom</packaging>
 
   <modules>
-    <module>coinapi</module>
-    <module>coinapi-model</module>
+    <module>coinmarketcap-model</module>
     <module>coinmarketcap</module>
-    <module>coingecko</module>
   </modules>
 </project>

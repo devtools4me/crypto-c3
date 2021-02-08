@@ -1,4 +1,4 @@
-package io.coinapi.rest;
+package com.coingecko.api.v3;
 
 import feign.Response;
 import feign.codec.Decoder;
@@ -8,7 +8,7 @@ import me.devtools4.crypto.dto.CryptoError;
 public class CryptoErrorDecoder implements ErrorDecoder {
 
   final Decoder decoder;
-  final ErrorDecoder defaultDecoder = new ErrorDecoder.Default();
+  final ErrorDecoder defaultDecoder = new Default();
 
   public CryptoErrorDecoder(Decoder decoder) {
     this.decoder = decoder;

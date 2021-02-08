@@ -1,4 +1,4 @@
-package io.coinapi.rest.model;
+package me.devtools4.crypto.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

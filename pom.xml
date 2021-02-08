@@ -28,6 +28,7 @@
   <modules>
     <module>connectors</module>
     <module>dto-avro</module>
+    <module>utils</module>
   </modules>
 
   <properties>
