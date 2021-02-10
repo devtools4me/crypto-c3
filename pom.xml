@@ -26,8 +26,10 @@
   </scm>
 
   <modules>
+    <module>starter</module>
     <module>connectors</module>
     <module>dto-avro</module>
+    <module>cache</module>
     <module>utils</module>
   </modules>
 
@@ -42,6 +44,8 @@
     <feign.version>11.0</feign.version>
     <lombok.version>1.18.0</lombok.version>
     <avro.version>1.9.2</avro.version>
+    <ignite.version>2.7.5</ignite.version>
+    <h2.version>1.4.197</h2.version>
   </properties>
 
   <build>
