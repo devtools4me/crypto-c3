@@ -1,13 +1,17 @@
 package me.devtools4.crypto.cache.config;
 
+import java.util.List;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import me.devtools4.crypto.cache.config.IgniteProps.Client;
 import me.devtools4.crypto.cache.config.IgniteProps.Discovery;
 import me.devtools4.crypto.cache.config.IgniteProps.Discovery.Type;
+import me.devtools4.crypto.cache.config.IgniteProps.Persistence;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
+import org.apache.ignite.configuration.CacheConfiguration;
 import org.apache.ignite.configuration.ClientConnectorConfiguration;
+import org.apache.ignite.configuration.DataStorageConfiguration;
 import org.apache.ignite.configuration.IgniteConfiguration;
 import org.apache.ignite.failure.StopNodeFailureHandler;
 import org.apache.ignite.spi.discovery.DiscoverySpi;
@@ -23,7 +27,7 @@ public class IgniteConfig {
   private String applicationName;
 
   @Bean
-  public Ignite ignite(IgniteProps props) {
+  public Ignite ignite(IgniteProps props, List<CacheConfiguration> configs) {
     log.info("props={}", props);
     IgniteConfiguration conf = new IgniteConfiguration()
         .setIgniteInstanceName(applicationName)
@@ -39,10 +43,14 @@ public class IgniteConfig {
     Optional.ofNullable(props.getSystemWorkerBlockedTimeout())
         .ifPresent(props::setSystemWorkerBlockedTimeout);
     Optional.ofNullable(props.getPersistence())
-        .ifPresent(x -> conf.setDataStorageConfiguration(null));
+        .map(IgniteConfig::dataStorageConf)
+        .ifPresent(conf::setDataStorageConfiguration);
 
     Ignite ignite = Ignition.start(conf);
-    ignite.cluster().active(true);
+    ignite.cluster()
+        .active(true);
+
+    ignite.getOrCreateCaches(configs);
 
     return ignite;
   }
@@ -70,5 +78,14 @@ public class IgniteConfig {
           spi.setIpFinder(f);
         });
     return spi;
+  }
+
+  public static DataStorageConfiguration dataStorageConf(Persistence persistence) {
+    DataStorageConfiguration conf = new DataStorageConfiguration();
+    conf.getDefaultDataRegionConfiguration()
+        .setPersistenceEnabled(true);
+    conf.setStoragePath(persistence.getStoragePath());
+    conf.setSystemRegionInitialSize(persistence.getRegionInitSize());
+    return conf;
   }
 }

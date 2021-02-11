@@ -1,6 +1,8 @@
 package me.devtools4.crypto.cache;
 
+import me.devtools4.crypto.cache.config.CacheConfigs;
 import me.devtools4.crypto.cache.config.IgniteConfig;
+import me.devtools4.crypto.cache.config.JmxConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.metrics.KafkaMetricsAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +14,9 @@ import org.springframework.context.annotation.Import;
     KafkaMetricsAutoConfiguration.class
 })
 @Import({
-    IgniteConfig.class
+    IgniteConfig.class,
+    CacheConfigs.class,
+    JmxConfig.class
 })
 public class CryptoCacheApp {
 
