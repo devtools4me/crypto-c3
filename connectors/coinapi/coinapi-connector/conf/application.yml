@@ -1,0 +1,25 @@
+crypto:
+  env: local
+
+spring:
+  application:
+    name: crypto-coinapi
+  profiles:
+    active: local
+  jmx:
+    enabled: true
+  main:
+    banner-mode: 'off'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+
+coinapi:
+  apiKey: 76E7E6A1-AED9-4AC0-BFC1-E1C53B45666D
+  wsUrl: wss://ws-sandbox.coinapi.io/v1/
+#    wsUrl: wss://ws.coinapi.io/v1/
+  types:
+    - trade

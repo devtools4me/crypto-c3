@@ -1,12 +1,22 @@
 package io.coinapi.ws;
 
 import com.dslplatform.json.DslJson;
-import io.coinapi.websocket.model.*;
+import io.coinapi.websocket.model.Book;
 import io.coinapi.websocket.model.Error;
-import lombok.extern.slf4j.Slf4j;
-import org.glassfish.tyrus.client.ClientManager;
-
-import jakarta.websocket.*;
+import io.coinapi.websocket.model.Hello;
+import io.coinapi.websocket.model.MessageBase;
+import io.coinapi.websocket.model.MessageTypeEnum;
+import io.coinapi.websocket.model.OHLCV;
+import io.coinapi.websocket.model.Quotes;
+import io.coinapi.websocket.model.Reconnect;
+import io.coinapi.websocket.model.Trades;
+import io.coinapi.websocket.model.Volume;
+import jakarta.websocket.ClientEndpointConfig;
+import jakarta.websocket.CloseReason;
+import jakarta.websocket.Endpoint;
+import jakarta.websocket.EndpointConfig;
+import jakarta.websocket.MessageHandler;
+import jakarta.websocket.Session;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -17,14 +27,13 @@ import java.util.Queue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
+import lombok.extern.slf4j.Slf4j;
+import org.glassfish.tyrus.client.ClientManager;
 
 @Slf4j
 public class CoinAPIWebSocketImpl implements CoinAPIWebSocket {
 
-    private final String sandboxUrl = "wss://ws-sandbox.coinapi.io/v1/";
-    private final String noSandboxUrl = "wss://ws.coinapi.io/v1/";
-
-    private Boolean isSandbox;
+    private final URI uri;
     private DslJson<Object> json = new DslJson<>();
 
     private static CountDownLatch latch;
@@ -43,20 +52,16 @@ public class CoinAPIWebSocketImpl implements CoinAPIWebSocket {
     private InvokeFunction errorInvoke;
     private InvokeFunction reconnectInvoke;
 
-    /**
-     *
-     * @param isSandbox
-     */
-    public CoinAPIWebSocketImpl(Boolean isSandbox) {
+    public CoinAPIWebSocketImpl(URI uri) {
 
-        this.isSandbox = isSandbox;
+        this.uri = uri;
         client = ClientManager.createClient();
 
         Runnable task = () -> {
             while (running) {
                 if (messagesQueue.size() > 0) {
                     String message = (String) messagesQueue.remove();
-                    //log.info("message={}", message);
+                    log.trace("message={}", message);
 
                     InputStream stream = new ByteArrayInputStream(message.getBytes());
                     try {
@@ -139,7 +144,7 @@ public class CoinAPIWebSocketImpl implements CoinAPIWebSocket {
                 }
             };
 
-            connection = Optional.ofNullable(client.connectToServer(endpoint, cec, new URI(isSandbox ? sandboxUrl : noSandboxUrl)));
+            connection = Optional.ofNullable(client.connectToServer(endpoint, cec, uri));
             latch.await(100, TimeUnit.SECONDS);
         } catch (Exception e) {
             e.printStackTrace();

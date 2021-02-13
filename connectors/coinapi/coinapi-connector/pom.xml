@@ -10,52 +10,61 @@
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>crypto-c3-coinapi-ws-spring</artifactId>
+  <artifactId>crypto-c3-coinapi-connector</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>me.devtools4.crypto</groupId>
-      <artifactId>crypto-c3-coinapi-model</artifactId>
+      <artifactId>crypto-c3-spring-starter</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
     <dependency>
       <groupId>me.devtools4.crypto</groupId>
-      <artifactId>crypto-c3-dto-avro</artifactId>
+      <artifactId>crypto-c3-coinapi-ws</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
     <dependency>
       <groupId>me.devtools4.crypto</groupId>
-      <artifactId>crypto-c3-utils</artifactId>
+      <artifactId>crypto-c3-coinapi-kafka</artifactId>
       <version>${project.parent.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>me.devtools4.crypto</groupId>
-      <artifactId>crypto-c3-spring-ws-starter</artifactId>
-      <version>${project.parent.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
     </dependency>
 
+    <!--Test-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>build-info</id>
+            <goals>
+              <goal>build-info</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <classifier>exec</classifier>
+          <mainClass>me.devtools4.crypto.coinapi.CryptoCoinapiApp</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

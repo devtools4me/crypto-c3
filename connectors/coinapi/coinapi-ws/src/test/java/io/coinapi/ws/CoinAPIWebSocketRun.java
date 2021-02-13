@@ -3,6 +3,7 @@ package io.coinapi.ws;
 import static io.coinapi.websocket.model.MessageTypeEnum.trade;
 
 import io.coinapi.websocket.model.Hello;
+import java.net.URI;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class CoinAPIWebSocketRun {
@@ -10,7 +11,7 @@ public class CoinAPIWebSocketRun {
   private static String API_KEY = "76E7E6A1-AED9-4AC0-BFC1-E1C53B45666D";
 
   public static void main(String[] args) throws Exception {
-    CoinAPIWebSocket coinAPIWebSocket = new CoinAPIWebSocketImpl(false);
+    CoinAPIWebSocket coinAPIWebSocket = new CoinAPIWebSocketImpl(new URI("wss://ws-sandbox.coinapi.io/v1/"));
 
     AtomicReference<Integer> msgCount = new AtomicReference<>(0);
 
