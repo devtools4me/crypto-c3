@@ -1,0 +1,23 @@
+crypto:
+  env: test
+
+spring:
+  application:
+    name: crypto-cache
+  profiles:
+    active: test
+  jmx:
+    enabled: true
+  main:
+    banner-mode: 'off'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+
+ignite:
+  backups: 0
+  metricsLogFreq: 600000
+  systemWorkerBlockedTimeout: 30000

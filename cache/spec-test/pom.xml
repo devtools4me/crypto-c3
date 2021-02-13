@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>me.devtools4.crypto</groupId>
+    <artifactId>crypto-c3-cache-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../</relativePath>
+  </parent>
+
+  <artifactId>crypto-c3-cache-spec-test</artifactId>
+
+  <prerequisites>
+  </prerequisites>
+
+  <dependencies>
+    <dependency>
+      <groupId>me.devtools4.crypto</groupId>
+      <artifactId>crypto-c3-cache-ignite</artifactId>
+      <version>${project.parent.version}</version>
+    </dependency>
+
+    <!--Test-->
+    <dependency>
+      <groupId>me.devtools4.crypto</groupId>
+      <artifactId>crypto-c3-cucumber-starter</artifactId>
+      <version>${project.parent.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

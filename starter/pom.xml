@@ -17,5 +17,6 @@
   <modules>
     <module>ignite-starter</module>
     <module>spring-starter</module>
+    <module>cucumber-starter</module>
   </modules>
 </project>
