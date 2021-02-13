@@ -46,8 +46,10 @@
     <avro.version>1.9.2</avro.version>
     <ignite.version>2.7.5</ignite.version>
     <h2.version>1.4.197</h2.version>
+    <spring.version>5.2.2.RELEASE</spring.version>
     <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
     <micrometer.version>1.5.5</micrometer.version>
+    <dsl.version>1.9.3</dsl.version>
   </properties>
 
   <build>
@@ -80,6 +82,11 @@
         <groupId>io.github.openfeign</groupId>
         <artifactId>feign-gson</artifactId>
         <version>${feign.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.dslplatform</groupId>
+        <artifactId>dsl-json-java8</artifactId>
+        <version>${dsl.version}</version>
       </dependency>
 
       <dependency>

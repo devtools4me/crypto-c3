@@ -16,7 +16,6 @@
 
   <modules>
     <module>coinapi</module>
-    <module>coinapi-model</module>
     <module>coinmarketcap</module>
     <module>coingecko</module>
   </modules>

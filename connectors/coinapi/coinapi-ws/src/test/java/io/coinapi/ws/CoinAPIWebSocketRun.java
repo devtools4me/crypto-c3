@@ -48,11 +48,10 @@ public class CoinAPIWebSocketRun {
     coinAPIWebSocket.closeConnect();
   }
 
-
   public static Hello createHello(String[] types) {
     Hello hello = new Hello();
     hello.setApikey(API_KEY);
-    hello.setSubscribeDataType(types);
+    hello.setSubscribe_data_type(types);
     return hello;
   }
 }

@@ -14,8 +14,10 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>coinapi-model</module>
     <module>coinapi-rest</module>
     <module>coinapi-ws</module>
+    <module>coinapi-ws-spring</module>
     <module>coinapi-kafka</module>
   </modules>
 </project>

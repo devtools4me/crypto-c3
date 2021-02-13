@@ -5,7 +5,7 @@
 
   <parent>
     <groupId>me.devtools4.crypto</groupId>
-    <artifactId>crypto-c3-connectors-parent</artifactId>
+    <artifactId>crypto-c3-coinapi-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
@@ -21,7 +21,6 @@
     <dependency>
       <groupId>com.dslplatform</groupId>
       <artifactId>dsl-json-java8</artifactId>
-      <version>1.9.3</version>
     </dependency>
   </dependencies>
 </project>
