@@ -61,7 +61,7 @@ public class CoinAPIWebSocketImpl implements CoinAPIWebSocket {
             while (running) {
                 if (messagesQueue.size() > 0) {
                     String message = (String) messagesQueue.remove();
-                    log.trace("message={}", message);
+                    log.trace("{}", message);
 
                     InputStream stream = new ByteArrayInputStream(message.getBytes());
                     try {

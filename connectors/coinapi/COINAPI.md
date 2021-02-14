@@ -1,3 +1,4 @@
+# CoinAPI
 
 ```
 curl https://rest.coinapi.io/v1/exchanges \
@@ -11,4 +12,18 @@ curl https://rest.coinapi.io/v1/exchanges/BINANCE \
 curl https://rest.coinapi.io/v1/assets \
   --request GET \
   --header "X-CoinAPI-Key: 76E7E6A1-AED9-4AC0-BFC1-E1C53B45666D"
+```
+
+## Build
+
+```
+mvn clean install
+```
+
+## Run
+
+```
+me.devtools4.crypto.coinapi.CryptoCoinapiApp
+-Dspring.config.location=file:/app/conf/application.yml
+-Dlogging.config=file:/app/conf/logback.xml
 ```
