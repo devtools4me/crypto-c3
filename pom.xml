@@ -28,6 +28,7 @@
   <modules>
     <module>starter</module>
     <module>connectors</module>
+    <module>data-science</module>
     <module>dto-avro</module>
     <module>cache</module>
     <module>utils</module>
@@ -50,6 +51,10 @@
     <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
     <micrometer.version>1.5.5</micrometer.version>
     <dsl.version>1.9.3</dsl.version>
+
+    <morpheus.version>0.9.21</morpheus.version>
+    <jfreechart.version>1.0.15</jfreechart.version>
+    <jcommon.version>1.0.17</jcommon.version>
   </properties>
 
   <build>
@@ -87,6 +92,23 @@
         <groupId>com.dslplatform</groupId>
         <artifactId>dsl-json-java8</artifactId>
         <version>${dsl.version}</version>
+      </dependency>
+
+      <!--data-science-->
+      <dependency>
+        <groupId>com.zavtech</groupId>
+        <artifactId>morpheus-core</artifactId>
+        <version>${morpheus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jfreechart</artifactId>
+        <version>${jfreechart.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jcommon</artifactId>
+        <version>${jcommon.version}</version>
       </dependency>
 
       <dependency>
