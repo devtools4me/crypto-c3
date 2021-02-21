@@ -22,4 +22,5 @@ coinapi:
   wsUrl: wss://ws-sandbox.coinapi.io/v1/
 #    wsUrl: wss://ws.coinapi.io/v1/
   types:
-    - trade
+#    - trade
+    - ohlcv

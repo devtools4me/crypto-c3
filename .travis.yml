@@ -4,7 +4,6 @@ install: true
 jdk:
 - openjdk15
 - openjdk11
-- openjdk8
 
 script:
   - mvn test -B

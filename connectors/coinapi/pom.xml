@@ -17,6 +17,7 @@
     <module>coinapi-model</module>
     <module>coinapi-rest</module>
     <module>coinapi-ws</module>
+    <module>coinapi-ops</module>
     <module>coinapi-kafka</module>
     <module>coinapi-connector</module>
   </modules>

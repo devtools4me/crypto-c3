@@ -6,6 +6,7 @@ import io.coinapi.websocket.model.Trades;
 import java.util.function.Consumer;
 import lombok.extern.slf4j.Slf4j;
 import me.devtools4.crypto.Serde;
+import me.devtools4.crypto.coinapi.Ops;
 import me.devtools4.crypto.dto.avro.TradeEvent;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;

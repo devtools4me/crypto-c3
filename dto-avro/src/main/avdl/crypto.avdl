@@ -36,8 +36,8 @@ protocol CryptoEvents {
     union {null, double} priceLow = null;
     union {null, double} priceClose = null;
     union {null, double} volumeTraded = null;
-    union {null, long} tradesCount = null;
+    union {null, int} tradesCount = null;
     union {null, string} symbolId = null;
-    union {null, long} sequence = null;
+    union {null, int} sequence = null;
   }
 }

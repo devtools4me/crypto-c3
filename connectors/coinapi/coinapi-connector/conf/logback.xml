@@ -9,7 +9,7 @@
   </contextListener>
 
   <appender name="FILE-WS-MESSAGES" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>coinapi-ws.log</file>
+    <file>coinapi.log</file>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
       <fileNamePattern>logs/archived/app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>

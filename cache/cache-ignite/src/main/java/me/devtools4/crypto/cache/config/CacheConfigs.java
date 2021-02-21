@@ -35,7 +35,7 @@ public class CacheConfigs {
         .setTypes(Long.class, OhlcvEvent.class)
         .setQueryEntities(Collections.singleton(
             new QueryEntity(Long.class, OhlcvEvent.class)
-                .addQueryField("sequence", Long.class.getName(), null)
+                .addQueryField("sequence", Integer.class.getName(), null)
                 .setIndexes(ImmutableList.of(
                     new QueryIndex("sequence")
                 ))
