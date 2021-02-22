@@ -94,6 +94,12 @@
         <version>${dsl.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.apache.avro</groupId>
+        <artifactId>avro</artifactId>
+        <version>${avro.version}</version>
+      </dependency>
+
       <!--data-science-->
       <dependency>
         <groupId>com.d3xsystems</groupId>

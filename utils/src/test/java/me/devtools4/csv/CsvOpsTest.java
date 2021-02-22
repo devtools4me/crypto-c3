@@ -27,19 +27,15 @@ public class CsvOpsTest {
 
   @Test
   public void testCsv() {
-    var writer = new StringWriter();
+    var sw = new StringWriter();
     CsvOps.csv(List.of(Example.builder()
-            .symbolId("symbolId")
-            .sequence(12345)
-            .timePeriodStart(Instant.now().atOffset(ZoneOffset.UTC))
-            .priceOpen(123.123)
-            .build()),
-        Example.class,
-        new String[]{
-//            "symbolId", "sequence", "timePeriodStart", "priceOpen"
-        }, writer);
-    String s = writer.toString();
+        .symbolId("symbolId")
+        .sequence(12345)
+        .timePeriodStart(Instant.now().atOffset(ZoneOffset.UTC))
+        .priceOpen(123.123)
+        .build()), sw);
+    String s = sw.toString();
     assertNotNull(s);
-    log.info("{}", s);
+    log.info("\n{}", s);
   }
 }
