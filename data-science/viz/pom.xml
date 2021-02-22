@@ -35,7 +35,7 @@
     </dependency>
     <dependency>
       <groupId>com.d3xsystems</groupId>
-      <artifactId>d3x-morpheus-json</artifactId>
+      <artifactId>d3x-morpheus-viz</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jfree</groupId>

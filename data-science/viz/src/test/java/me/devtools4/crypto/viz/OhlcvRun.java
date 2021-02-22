@@ -1,8 +1,10 @@
 package me.devtools4.crypto.viz;
 
+import com.d3x.morpheus.frame.DataFrame;
 import com.dslplatform.json.DslJson;
 import io.coinapi.websocket.model.OHLCV;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
@@ -24,6 +26,21 @@ public class OhlcvRun {
           .collect(Collectors.toList());
       var out = CsvOps.csv(events);
       log.info("\n{}", out);
+
+      try (var in = new ByteArrayInputStream(out.getBytes())) {
+        var df = DataFrame.read(in).csv();
+        df.out().print();
+
+//        Chart.create().asHtml().withLinePlot(df, "DataDate", chart -> {
+//          chart.title().withText("Example Time Series Chart");
+//          chart.subtitle().withText("Cumulative Sum of Random Normal Data");
+//          chart.plot().axes().domain().label().withText("Data Date");
+//          chart.plot().axes().range(0).label().withText("Random Value");
+//          chart.plot().style("Total").withLineWidth(2f).withColor(Color.BLACK);
+//          chart.legend().on();
+//          chart.show();
+//        });
+      }
     }
   }
 }
