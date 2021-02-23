@@ -1,6 +1,7 @@
 package me.devtools4.crypto.coinapi;
 
 import com.dslplatform.json.DslJson;
+import io.coinapi.rest.model.Ohlcv;
 import io.coinapi.websocket.model.OHLCV;
 import io.coinapi.websocket.model.Trades;
 import java.io.ByteArrayInputStream;
@@ -41,6 +42,23 @@ public class Ops {
         .setPriceClose(other.getPriceClose())
         .setVolumeTraded(other.getVolumeTraded())
         .setTradesCount(other.getTradesCount())
+        .build();
+  }
+
+  public static OhlcvEvent event(String symbol_id, String period_id, Ohlcv other) {
+    return OhlcvEvent.newBuilder()
+        .setSymbolId(symbol_id)
+        .setPeriodId(period_id)
+        .setTimePeriodStart(other.getTime_period_start().toInstant())
+        .setTimePeriodEnd(other.getTime_period_end().toInstant())
+        .setTimeOpen(other.getTime_open().toInstant())
+        .setTimeClose(other.getTime_close().toInstant())
+        .setPriceOpen(other.getPrice_open())
+        .setPriceHigh(other.getPrice_high())
+        .setPriceLow(other.getPrice_low())
+        .setPriceClose(other.getPrice_close())
+        .setVolumeTraded(other.getVolume_traded())
+        .setTradesCount(other.getTrades_count())
         .build();
   }
 
