@@ -23,3 +23,12 @@ ignite:
   backups: 0
   metricsLogFreq: 600000
   systemWorkerBlockedTimeout: 30000
+
+kafka:
+  topics:
+    ohlcvEvent: me.devtools4.crypto.dto.avro.OhlcvEvent
+  configs:
+    acks: 1
+    clientId: ${crypto.env}-${spring.application.name}
+    brokers: localhost:9092
+    groupId: ${crypto.env}-${spring.application.name}-0

@@ -12,9 +12,6 @@
 
   <artifactId>crypto-c3-ignite-starter</artifactId>
 
-  <properties>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.ignite</groupId>
@@ -30,6 +27,16 @@
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <version>${h2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ignite</groupId>
+      <artifactId>ignite-kafka-ext</artifactId>
+      <version>${ignite-kafka-ext.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka-clients.version}</version>
     </dependency>
   </dependencies>
 </project>

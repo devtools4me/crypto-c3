@@ -25,7 +25,9 @@ import org.springframework.test.context.ContextConfiguration;
 
 @Slf4j
 @ContextConfiguration(classes = {
-    CryptoCacheApp.class
+    CryptoCacheApp.class,
+    TestKafkaConsumerConfig.class,
+    TestKafkaProducerConfig.class
 }, initializers = TestContextInitializer.class)
 @SpringBootTest(
     webEnvironment = RANDOM_PORT

@@ -21,3 +21,16 @@ ignite:
   backups: 0
   metricsLogFreq: 600000
   systemWorkerBlockedTimeout: 30000
+  client:
+    url: localhost:${ignite.client.port}
+
+kafka:
+  topics:
+    ohlcvEvent: me.devtools4.crypto.dto.avro.OhlcvEvent
+  configs:
+    acks: '1'
+    client.id: ${crypto.env}-${spring.application.name}
+    bootstrap.servers: ${spring.embedded.kafka.brokers}
+    group.id: ${crypto.env}-${spring.application.name}-0
+    key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value.deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer

@@ -45,13 +45,18 @@
     <feign.version>11.0</feign.version>
     <lombok.version>1.18.0</lombok.version>
     <avro.version>1.9.2</avro.version>
-    <ignite.version>2.7.5</ignite.version>
+    <!--Ignite-->
+    <ignite.version>2.9.1</ignite.version>
+    <ignite-kafka-ext.version>1.0.0</ignite-kafka-ext.version>
     <h2.version>1.4.197</h2.version>
+    <!--Spring-->
     <spring.version>5.2.2.RELEASE</spring.version>
     <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
     <micrometer.version>1.5.5</micrometer.version>
     <dsl.version>1.9.3</dsl.version>
-
+    <!--Kafka-->
+    <kafka-clients.version>2.4.0</kafka-clients.version>
+    <!--Misc-->
     <morpheus.version>1.0.31</morpheus.version>
     <jfreechart.version>1.0.15</jfreechart.version>
     <jcommon.version>1.0.17</jcommon.version>
