@@ -45,7 +45,9 @@ public class StreamerConfig {
   @Bean
   public StreamSingleTupleExtractor<ConsumerRecord<String, byte[]>, String, OhlcvEvent> streamSingleTupleExtractor() {
     return x -> {
+      log.info("Received message, key={}", x.key());
       OhlcvEvent e = Serde.deserialize(x.value(), OhlcvEvent.getClassSchema());
+      log.info("Received event={}", e);
       return Map.of(x.key(), e)
           .entrySet()
           .iterator()

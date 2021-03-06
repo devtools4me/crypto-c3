@@ -25,6 +25,7 @@ ignite:
     url: localhost:${ignite.client.port}
 
 kafka:
+  threads: 1
   topics:
     ohlcvEvent: me.devtools4.crypto.dto.avro.OhlcvEvent
   configs:
