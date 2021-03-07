@@ -1,6 +1,5 @@
-package me.devtools4.crypto.cache;
+package me.devtools4.crypto.cache.config;
 
-import me.devtools4.crypto.cache.config.KafkaProps;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.apache.kafka.common.serialization.StringSerializer;

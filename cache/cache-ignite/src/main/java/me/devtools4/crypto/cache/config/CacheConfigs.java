@@ -1,7 +1,9 @@
 package me.devtools4.crypto.cache.config;
 
 import com.google.common.collect.ImmutableList;
+import java.time.Instant;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import javax.cache.expiry.EternalExpiryPolicy;
 import me.devtools4.crypto.dto.avro.OhlcvEvent;
@@ -30,14 +32,18 @@ public class CacheConfigs {
   }
 
   @Bean
-  public CacheConfiguration<Long, OhlcvEvent> ohlcvEventCacheConfiguration(IgniteProps props) {
-    return configure(new CacheConfiguration<Long, OhlcvEvent>(OhlcvEvent.class.getCanonicalName())
-        .setTypes(Long.class, OhlcvEvent.class)
-        .setQueryEntities(Collections.singleton(
-            new QueryEntity(Long.class, OhlcvEvent.class)
-                .addQueryField("sequence", Integer.class.getName(), null)
+  public CacheConfiguration<String, OhlcvEvent> ohlcvEventCacheConfiguration(IgniteProps props) {
+    return configure(new CacheConfiguration<String, OhlcvEvent>(OhlcvEvent.class.getCanonicalName())
+        .setTypes(String.class, OhlcvEvent.class)
+        .setQueryEntities(List.of(
+            new QueryEntity(String.class, OhlcvEvent.class)
+                .addQueryField("symbolId", String.class.getName(), null)
+                .addQueryField("timeOpen", Instant.class.getName(), null)
+                .addQueryField("timeClose", Instant.class.getName(), null)
                 .setIndexes(ImmutableList.of(
-                    new QueryIndex("sequence")
+                    new QueryIndex("symbolId"),
+                    new QueryIndex("timeOpen"),
+                    new QueryIndex("timeClose")
                 ))
         )), props.getBackups());
   }

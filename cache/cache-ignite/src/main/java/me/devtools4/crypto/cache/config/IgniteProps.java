@@ -17,6 +17,7 @@ public class IgniteProps {
   @Data
   public static class Client {
 
+    private String url;
     private Integer port;
   }
 

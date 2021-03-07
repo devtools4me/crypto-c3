@@ -1,10 +1,15 @@
 package me.devtools4.crypto.cache.api;
 
-import java.util.Collection;
 import java.util.Optional;
+import java.util.stream.Stream;
 
-public interface QueryService<T, I> {
-  Collection<T> all();
+public interface QueryService<K, V> {
+
+  Stream<V> all();
+
   Integer size();
-  Optional<T> find(I id);
+
+  Optional<V> find(K key);
+
+  Stream<V> find(String query, Object... args);
 }

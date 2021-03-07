@@ -1,8 +1,7 @@
-package me.devtools4.crypto.cache;
+package me.devtools4.crypto.cache.config;
 
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
-import me.devtools4.crypto.cache.config.KafkaProps;
 import me.devtools4.crypto.cache.kafka.CryptoKafkaListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
