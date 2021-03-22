@@ -32,6 +32,7 @@
     <module>dto-avro</module>
     <module>cache</module>
     <module>utils</module>
+    <module>tests</module>
   </modules>
 
   <properties>

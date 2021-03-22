@@ -5,12 +5,12 @@
 
   <parent>
     <groupId>me.devtools4.crypto</groupId>
-    <artifactId>crypto-c3-cache-parent</artifactId>
+    <artifactId>crypto-c3-tests-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>crypto-c3-cache-spec-test</artifactId>
+  <artifactId>crypto-c3-spec-test</artifactId>
 
   <prerequisites>
   </prerequisites>
