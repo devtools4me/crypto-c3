@@ -25,7 +25,7 @@ public class ManagedCacheOps implements CacheOps {
   @ManagedOperation
   public String caches() {
     Collection<String> names = ignite.cacheNames();
-    String res = names.stream().reduce("", reduce("\n"));
+    String res = names.stream().reduce("", reduce(","));
     log.info("caches={}", res);
     return res;
   }

@@ -11,7 +11,7 @@ public class TestContextInitializer implements ApplicationContextInitializer<Con
 
   @Override
   public void initialize(ConfigurableApplicationContext ctx) {
-    String pairs = "ignite.client.port=" + SocketUtils.findAvailableTcpPort();
+    String pairs = "ignite.client.port=" + SocketUtils.findAvailableTcpPort(1024, 49151);
     log.info("{}", pairs);
 
     TestPropertyValues.of(pairs)

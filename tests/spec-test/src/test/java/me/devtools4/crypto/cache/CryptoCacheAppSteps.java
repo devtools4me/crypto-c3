@@ -19,6 +19,7 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Queue;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
@@ -90,7 +91,10 @@ public class CryptoCacheAppSteps {
     String topology = cacheOps.topology();
     log.info("topology={}", topology);
 
-    Arrays.stream(cacheOps.caches().split(", "))
+    var caches = cacheOps.caches();
+    log.info("caches={}", caches);
+
+    Arrays.stream(caches.split(","))
         .map(cacheOps::clear)
         .forEach(log::info);
   }
@@ -98,16 +102,21 @@ public class CryptoCacheAppSteps {
   @When("^OHLCV event is available in KAFKA in (.+) sec with details$")
   public void ohlcvEventIsPresent(Integer timeout, DataTable table) throws Exception {
     var details = table.asList(OhlcvEventDetails.class).get(0);
-    var event = wait(listener.supplier(), timeout);
-    log.info("event={}", event);
-    assertNotNull(event);
-    assertThat(event.getSymbolId(), is(details.getSymbolId()));
+    var pair = wait(listener.supplier(), timeout);
+    log.info("pair={}", pair);
+    assertNotNull(pair);
+    assertThat(pair.getRight().getSymbolId(), is(details.getSymbolId()));
   }
 
   @When("^OHLCV event is available in cache in (.+) with details$")
   public void ohlcvEventIsPopulated(Integer timeout, DataTable table) throws Exception {
     var details = table.asList(OhlcvEventDetails.class).get(0);
-    var event = wait(() -> ohlcvEventQueryService.all().findAny(), timeout);
+    var pair = listener.getEvents().get(0);
+    log.info("pair={}", pair);
+    assertNotNull(pair);
+
+    var event = wait(() -> ohlcvEventQueryService.all(Set.of(pair.getLeft()))
+        .findAny(), timeout);
     log.info("event={}", event);
     assertNotNull(event);
     assertThat(event.getSymbolId(), is(details.getSymbolId()));
