@@ -20,6 +20,10 @@ public class CryptoKafkaListener {
     return events;
   }
 
+  public void clear() {
+    events.clear();
+  }
+
   public Supplier<Optional<Pair<String, OhlcvEvent>>> supplier() {
     return () -> getEvents()
         .stream()

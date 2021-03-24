@@ -97,6 +97,8 @@ public class CryptoCacheAppSteps {
     Arrays.stream(caches.split(","))
         .map(cacheOps::clear)
         .forEach(log::info);
+
+    listener.clear();
   }
 
   @When("^OHLCV event is available in KAFKA in (.+) sec with details$")
