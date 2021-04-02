@@ -25,10 +25,13 @@ ignite:
   systemWorkerBlockedTimeout: 30000
 
 kafka:
+  threads: 1
   topics:
     ohlcvEvent: me.devtools4.crypto.dto.avro.OhlcvEvent
   configs:
     acks: 1
-    clientId: ${crypto.env}-${spring.application.name}
-    brokers: localhost:9092
-    groupId: ${crypto.env}-${spring.application.name}-0
+    client.id: ${crypto.env}-${spring.application.name}
+    bootstrap.servers: localhost:9092
+    group.id: ${crypto.env}-${spring.application.name}-0
+    key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value.deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer

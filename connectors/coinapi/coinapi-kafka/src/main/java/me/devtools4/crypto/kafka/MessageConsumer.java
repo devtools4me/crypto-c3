@@ -2,11 +2,13 @@ package me.devtools4.crypto.kafka;
 
 import io.coinapi.websocket.model.MessageBase;
 import io.coinapi.websocket.model.MessageTypeEnum;
+import io.coinapi.websocket.model.OHLCV;
 import io.coinapi.websocket.model.Trades;
 import java.util.function.Consumer;
 import lombok.extern.slf4j.Slf4j;
 import me.devtools4.crypto.Serde;
 import me.devtools4.crypto.coinapi.Ops;
+import me.devtools4.crypto.dto.avro.OhlcvEvent;
 import me.devtools4.crypto.dto.avro.TradeEvent;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -27,13 +29,22 @@ public class MessageConsumer implements Consumer<MessageBase> {
   @Override
   public void accept(MessageBase message) {
     switch (MessageTypeEnum.valueOf(message.getType())) {
-      case trade:
-        TradeEvent event = Ops.event((Trades) message);
+      case trade: {
+        var event = Ops.event((Trades) message);
         send(new ProducerRecord<>(
-            "tradeEvent",
+            TradeEvent.class.getCanonicalName(),
             event.getSymbolId(),
             Serde.serialize(event, event.getSchema())));
         break;
+      }
+      case ohlcv: {
+        var event = Ops.event((OHLCV) message);
+        send(new ProducerRecord<>(
+            OhlcvEvent.class.getCanonicalName(),
+            event.getSymbolId(),
+            Serde.serialize(event, event.getSchema())));
+        break;
+      }
       default:
     }
   }

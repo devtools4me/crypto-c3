@@ -1,7 +1,5 @@
 package me.devtools4.crypto.cache.config;
 
-import com.google.common.collect.ImmutableList;
-import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -25,7 +23,7 @@ public class CacheConfigs {
         .setQueryEntities(Collections.singleton(
             new QueryEntity(String.class, TradeEvent.class)
                 .addQueryField("uuid", String.class.getName(), null)
-                .setIndexes(ImmutableList.of(
+                .setIndexes(List.of(
                     new QueryIndex("uuid")
                 ))
         )), props.getBackups());
@@ -38,17 +36,18 @@ public class CacheConfigs {
         .setQueryEntities(List.of(
             new QueryEntity(String.class, OhlcvEvent.class)
                 .addQueryField("symbolId", String.class.getName(), null)
-                .addQueryField("timeOpen", Instant.class.getName(), null)
-                .addQueryField("timeClose", Instant.class.getName(), null)
-                .setIndexes(ImmutableList.of(
-                    new QueryIndex("symbolId"),
-                    new QueryIndex("timeOpen"),
-                    new QueryIndex("timeClose")
+//                .addQueryField("timeOpen", Instant.class.getName(), null)
+//                .addQueryField("timeClose", Instant.class.getName(), null)
+                .setIndexes(List.of(
+                    new QueryIndex("symbolId")
+//                    new QueryIndex("timeOpen"),
+//                    new QueryIndex("timeClose")
                 ))
         )), props.getBackups());
   }
 
-  public static <K, V> CacheConfiguration<K, V> configure(CacheConfiguration<K, V> conf, Integer backups) {
+  public static <K, V> CacheConfiguration<K, V> configure(CacheConfiguration<K, V> conf,
+      Integer backups) {
     conf
         .setAtomicityMode(CacheAtomicityMode.ATOMIC)
         .setExpiryPolicyFactory(EternalExpiryPolicy::new)

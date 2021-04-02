@@ -13,6 +13,6 @@ Feature: Crypto Cache API
     Then OHLCV event is available in KAFKA in 5 sec with details
       | symbolId              | periodId |
       | BITSTAMP_SPOT_BTC_USD | 1MIN     |
-#    Then OHLCV event is available in cache in 5 sec with details
-#      | symbolId              | periodId |
-#      | BITSTAMP_SPOT_BTC_USD | 1MIN     |
+    Then OHLCV event is available in cache in 5 sec with details
+      | symbolId              | periodId |
+      | BITSTAMP_SPOT_BTC_USD | 1MIN     |

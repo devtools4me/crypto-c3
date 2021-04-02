@@ -9,5 +9,5 @@ mvn clean install
 ## Run
 
 ```
--Dspring.config.location=file:/app/cache/cache-ignite/conf/application.yml
+--spring.config.location=file:/app/cache/cache-ignite/conf/application.yml
 ```
