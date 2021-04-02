@@ -30,7 +30,7 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import me.devtools4.crypto.Serde;
 import me.devtools4.crypto.cache.api.MetricsApi;
-import me.devtools4.crypto.cache.api.impl.OhlcvEventQueryService;
+import me.devtools4.crypto.cache.thinclient.OhlcvEventQueryService;
 import me.devtools4.crypto.cache.config.KafkaProps;
 import me.devtools4.crypto.cache.config.TestConfig;
 import me.devtools4.crypto.cache.config.TestContextInitializer;

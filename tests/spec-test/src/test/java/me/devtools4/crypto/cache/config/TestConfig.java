@@ -1,6 +1,6 @@
 package me.devtools4.crypto.cache.config;
 
-import me.devtools4.crypto.cache.api.impl.OhlcvEventQueryService;
+import me.devtools4.crypto.cache.thinclient.OhlcvEventQueryService;
 import me.devtools4.crypto.dto.avro.OhlcvEvent;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.client.ClientCache;

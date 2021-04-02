@@ -1,4 +1,4 @@
-package me.devtools4.crypto.cache.api.impl;
+package me.devtools4.crypto.cache.thinclient;
 
 import me.devtools4.crypto.dto.avro.TradeEvent;
 import org.apache.ignite.client.ClientCache;

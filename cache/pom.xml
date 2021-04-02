@@ -17,5 +17,6 @@
   <modules>
     <module>cache-ignite</module>
     <module>cache-api</module>
+    <module>cache-client</module>
   </modules>
 </project>

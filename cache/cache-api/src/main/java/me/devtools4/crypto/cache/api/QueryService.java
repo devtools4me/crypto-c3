@@ -1,5 +1,6 @@
 package me.devtools4.crypto.cache.api;
 
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -12,5 +13,7 @@ public interface QueryService<K, V> {
 
   Optional<V> find(K key);
 
-  Stream<V> find(String query, Object... args);
+  Map<K, V> findAll(Set<K> keys);
+
+  Stream<V> query(String query, Object... args);
 }

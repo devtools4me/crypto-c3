@@ -14,23 +14,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>me.devtools4.crypto</groupId>
-      <artifactId>crypto-c3-dto-avro</artifactId>
-      <version>${project.parent.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>me.devtools4.crypto</groupId>
-      <artifactId>crypto-c3-ignite-starter</artifactId>
-      <version>${project.parent.version}</version>
-    </dependency>
-    <dependency>
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
